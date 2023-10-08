@@ -1,0 +1,26 @@
+resumos:
+  classes de tipos serve para traduzir os bits
+
+  o python usa o unicode u-tf8 portanto nao precisa usar decode
+
+  existe o chr no python parecido com o char do C porem é um metodo
+  
+  tipagem forte -> tipagem dinamica
+
+
+
+
+
+# formataçao de texto
+-logging lib:
+  concatenaçao "%";
+-mensagens longas:
+  .format()
+- restante:
+  f-string;
+
+
+# set
+  -> O(n) --> hash table
+  -> tira duplicatas
+  -> teoria dos conjuntos
