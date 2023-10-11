@@ -14,14 +14,13 @@ execuçao:
     ./main.py
 """
 import os
-__version__ = "0.1"
+__version__ = "0.1.2"
 __author__ = "nicolas"
-msg = "hello world!"
+
 current_language = os.getenv("LANG", "en_US")[:5]
-if current_language == "pt_BR":
-    msg = "ola, mundo!"
-elif current_language == "it_IT":
-    msg = "ciao,mondo!";
-
-
-print(msg)
+msg = {
+    "pt_BR": "ola mundo!",
+    "en_US": "hello world",
+    "es_SP": "hola, mundo"
+}
+print(msg[current_language])
