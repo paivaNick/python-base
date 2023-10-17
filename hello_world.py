@@ -25,12 +25,14 @@ arguments = {
 }
 for arg in sys.argv[1:]:
     # TODO - tratar value error
-    key, value = arg.split("=")
-    key = key.lstrip("-").strip()
-    value = value.strip()
-    if key not in arguments:
-        print(f" opçao {key} invalida!")
-        sys.exit()
+    try:
+        key, value = arg.split("=")
+        key = key.lstrip("-").strip()
+        value = value.strip()
+    except (ValueError) as e:
+            print(f" opçao invalida!")
+            print("tente --key=value")
+            sys.exit()
     arguments[key] = value
 msg = {
     "pt_BR": "ola mundo!. ",
@@ -41,6 +43,19 @@ current_language = arguments["lang"]
 
 if current_language is None:
     current_language = os.getenv("LANG", "en_US")[:5]
+try:
+    message = msg[current_language]
+    print(message * int(arguments["cout"]))
+except KeyError as e:
+    print(e)
+    print(f"as linguagens sao {list(msg.keys())}")
+"""
+message = msg.get(current_language, msg["en_US"])
+print(message)
+"""
 
 
-print(msg[current_language] *  int(arguments["cout"]))
+
+
+
+
